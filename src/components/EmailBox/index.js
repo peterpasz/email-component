@@ -150,14 +150,37 @@ class EmailBox extends React.Component{
         activeSuggestion,
         filteredSuggestions,
         showSuggestions,
-        value
+        value, 
+        emails
       }
     } = this;
 
-    let autoCompleteComponent;
+    {/* Renders the list of stored emails into a series of removable tags */}
+    {/* If an email is not valid, the 'error' class is added to it's corresponding tag */}
+    let emailTagsComponent;
+    
+    emailTagsComponent = (
+      <React.Fragment>
+        {emails.map((email, index) => ( 
+          <div className={'email-tag' + (this.isEmail(email) ? '' : ' error')} key={email + index}>
+            {email}
+            
+            <button
+              type="button"
+              className="button"
+              onClick={() =>  this.handleDelete(email)}
+            >
+              &times;
+            </button>
+          </div>
+        ))}
+      </React.Fragment>
+    );
 
-    // Autocomplete dropdown that renders as the user enters input
+    // Autocomplete Dropdown that renders as the user enters input
     // Data is pulled from mock API call in App.js
+    let autoCompleteComponent;
+    
     if (showSuggestions && value) {
       if (filteredSuggestions.length) {
         autoCompleteComponent = (
@@ -186,31 +209,19 @@ class EmailBox extends React.Component{
 
         <div className="email-wpr">
 
-          {/* Renders the list of stored emails into a series of tags */}
-          {this.state.emails.map((email, index) => (
-            <div className={'email-tag' + (this.isEmail(email) ? '' : ' error')} key={email + index}>
-              {email}
-              
-              <button
-                type="button"
-                className="button"
-                onClick={() =>  this.handleDelete(email)}
-              >
-                &times;
-              </button>
-            </div>
-          ))}
+          {/* Email Tags */}
+          {emailTagsComponent}
           
           {/* Email Input */}
           <input
             className={'email-input'}
             placeholder="Enter recipients..."
-            value={this.state.value}
+            value={value}
             onChange={this.handleChange}
             onKeyDown={this.handleKeyDown}
           />
 
-          {/* Autocomplete dropdown */}
+          {/* Autocomplete Dropdown */}
           {autoCompleteComponent}
 
         </div>
