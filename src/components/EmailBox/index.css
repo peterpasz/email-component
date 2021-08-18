@@ -1,0 +1,120 @@
+/* Wrapper Styles */
+/* Mimics the appearance of an input in order to render the stored emails to it's left */
+.email-wpr {
+    font-family: SFProText;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+    padding: 15px 15px 0 15px;
+    width: 400px;
+    border-radius: 8px;
+    border: 2px solid #d4d5d6;
+    background-color: white;
+}
+
+/* Email Input Styles */
+.email-input {
+    line-height: 18px;
+    letter-spacing: -0.3199999928474426px;
+    width: auto;
+    box-sizing: border-box;
+    font: inherit;
+    border-radius: 0.2rem;
+    border: none;
+    color: #1A1818;
+    -webkit-appearance: none;
+    margin: 0 8px 15px 8px;
+    min-height: 25px;
+}
+
+.email-input:focus {
+    outline: none;
+}
+
+/* Email Tag Styles */
+.email-tag {
+    background-color: white;;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 5px 0 5px 8px;
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 10px 0;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.email-tag:hover {
+    background-color: #EDEDED;
+}
+
+.email-tag > .button {
+    background-color: white;
+    color: white;
+    width: 22px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-weight: bold;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.email-tag:hover > .button {
+    background-color: #EDEDED;
+    color: black;
+}
+ 
+.email-tag.error {
+    background-color: #F3B7BD;
+}
+
+.email-tag.error > .button {
+    background-color: #F3B7BD;
+    color:#F3B7BD;
+    content: url('../../assets/icons/error-circle.svg');
+}
+
+.email-tag.error:hover > .button {
+    color: black;
+    content: none;
+}
+
+/* Autocomplete Styles */
+.suggestions {
+    position: absolute;
+    height: auto;
+    max-height: 260px;
+    overflow: scroll;
+    background: #FDFDFD;
+    box-shadow: 0px 4px 14px rgba(26, 24, 24, 0.08);
+    cursor: default;
+    padding: 10px 0 10px 0;
+    border-radius: 4px;
+    margin-top: -15px;
+    width: 400px;
+}
+
+.suggestions li {
+    padding: 5px 20px 5px 20px;
+}
+
+.suggestion-active {
+    background-color: #EFF5F9;
+}
+
+.suggestions::-webkit-scrollbar {
+    border-radius: 10%;
+}
+
+.suggestions::-webkit-scrollbar-thumb {
+    background: #C6C6C6;
+    border-radius: 100px;
+
+}
